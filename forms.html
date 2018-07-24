@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/style.css"/>
+
+
+        <title>CSC 642 Summer 2018 Registration form</title>
+<head>
+        
+
+
+</head>
+    <body>
+<!-- title of project -->
+        <h1 align="center">CSC 642 Summer 2018 Individual Assignment <student first last name>
+                <br>
+                Registration form</h1>
+                 <form action="" name="registration">
+                  <br>
+                <!-- First Name -->
+                <form class="needs-validation" novalidate>
+                <div class="form-row">
+                <div class="form-group col-md-5">
+                  <label for="validationTooltip01">First Name<span class="error">*</label>
+                    <!-- <div> -->
+                    <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+                  <input  type="text"  name="firstname" id="validationTooltip01" class="form-control" placeholder="First Name" />
+                <div class="invalid-tooltip">
+
+                <!-- <small id="FirstHelpBlock" class="form-text text-muted">
+                    Please enter a valid First Name (up to 40 characters)
+                </small> -->
+              </div>
+                <!-- </div>
+              <!-- </div> -->
+            </div>
+            </div>
+
+            <form action="" name="registration">
+  <!-- Last Name -->
+                <div class="form-row">
+                <div class="form-group col-md-5">
+                <label class="col-md-4 control-label" >Last Name<span class="error">*</label>
+                  <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+                <input type="text" name="lastname" placeholder="Last Name" class="form-control"  type="text" >
+                <!-- <div class="invalid-tooltip">
+                  <small id="LastHelpBlock" class="form-text text-muted">
+                      Please enter a valid Last Name (up to 40 characters)
+                  </small>
+                </div> -->
+                </div>
+              </div>
+            <!-- Location: Address -->
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                      <br>
+                        <label for="validationTooltip03">Address<span class="error">*</label>
+                    <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
+                        <input type="address" class="form-control" id="validationTooltip03" placeholder="1234 Main St" >
+                        <!-- <div class="invalid-tooltip">
+                        <small id="AddressHelpBlock" class="form-text text-muted">
+                            Please enter a valid Street Address (each entry up to 40 alpha numeric character)
+                        </small>
+                      </div> -->
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                  <div class="form-group col-md-5">
+                  <label class="validationTooltip04" >City<span class="error">*</label>
+                    <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
+                  <input name="text" class="form-control" id="validationTooltip04" placeholder="City" >
+                  <!-- <div class="invalid-tooltip">
+                    <small id="LastHelpBlock" class="form-text text-muted">
+                        Please enter a valid Last Name (up to 40 characters)
+                    </small>
+                  </div> -->
+
+                  </div>
+                </div>
+    <div class="form-group col-md-3">
+      <label for="inputState">State<span class="error">*</label>
+<!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span> -->
+      <select name="State" class="form-control selectpicker" >
+        <option selected>Choose...</option>
+        <option>Alabama</option>
+        <option>Alaska </option>
+        <option>Arizona </option>
+        <option>Arkansas </option>
+        <option>California </option>
+        <option>Colorado </option>
+        <option>Connecticut</option>
+        <option>Delaware </option>
+        <option>Florida </option>
+        <option>Georgia </option>
+        <option>Hawaii </option>
+        <option>Idaho </option>
+        <option>Illinois </option>
+        <option>Indiana </option>
+        <option>Iowa </option>
+        <option>Kansas</option>
+        <option>Kentucky </option>
+        <option>Louisiana </option>
+        <option>Maine </option>
+        <option>Maryland </option>
+        <option>Massachusetts </option>
+        <option>Michigan </option>
+        <option>Minnesota </option>
+        <option>Mississippi </option>
+        <option>Missouri </option>
+        <option>Montana </option>
+        <option>Nebraska </option>
+        <option>Nevada </option>
+        <option>New Hampshire </option>
+        <option>New Jersey </option>
+        <option>New Mexico </option>
+        <option>New York </option>
+        <option>North Carolina </option>
+        <option>North Dakota </option>
+        <option>Ohio </option>
+        <option>Oklahoma</option>
+        <option>Oregon </option>
+        <option>Pennsylvania </option>
+        <option>Rhode Island </option>
+        <option>South Carolina </option>
+        <option>South Dakota </option>
+        <option>Tennessee </option>
+        <option>Texas </option>
+        <option>Utah </option>
+        <option>Vermont </option>
+        <option>Virginia </option>
+        <option>Washington </option>
+        <option>West Virginia </option>
+        <option>Wisconsin </option>
+        <option>Wyoming </option>
+
+      </select>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-4">
+    <label class="col-md-4 control-label" >Zip Code<span class="error">*</label>
+      <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
+    <input name="zip" placeholder="12345" class="form-control"  type="text" >
+    <!-- <div class="invalid-tooltip">
+      <small id="LastHelpBlock" class="form-text text-muted">
+          Please enter a valid Last Name (up to 40 characters)
+      </small>
+    </div> -->
+    </div>
+  </div>
+<!-- Education option-->
+                <!-- div class="fixed"> -->
+                <div class="form-row">
+                        <div class="form-group">
+                          <div class="col-md-8">
+                            <label for="Education Level">Education Level</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Select one...</option>
+                                <option>High School</option>
+                                <option>College</option>
+                                <option>Graduate Studies</option>
+                                <option>PH.D</option>
+                            </select>
+                        </div>
+                      </div>
+                    </div>
+
+
+                <!-- Income option -->
+                <div class="form-row">
+                        <div class="form-group">
+                          <div class="col-md-8">
+                            <label for="Income (yearly)"><div></div><br>Income (yearly)</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Select one...</option>
+                                <option>Less than $50K</option>
+                                <option>Between $50-100K</option>
+                                <option>Above $100K</option>
+                            </select>
+                        </div>
+                      </div>
+
+                    </div>
+                <!-- Phone Number -->
+                <form class="form- left-aligned" >
+                <div class="form-row">
+                  <div class="col-md-5">
+                      <label class="Phone control-label" ><br>Phone<span class="error">*</label>
+                    <input type="Phone" class="form-control" id="Phone" placeholder="(000)000-0000">
+                  </div>
+                </div>
+
+  <!--Email-->
+  <form class="form- left-aligned" >
+
+  <div class="form-row">
+    <div class="form-group col-md-5">
+        <label class="inputEmail4 control-label" ><br>Email</label>
+      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+    </div>
+  </div>
+  <!-- Password-->
+                <!-- <div class="fixed"> -->
+                <!-- <div class="form-group">
+                  <label for="pwd">Password:</label>
+                  <input type="password" class="form-control" id="pwd">
+                </div> -->
+
+<form class="form- left-aligned" action="/action_page.php">
+                                        <div class="form-row">
+                                                    <div class="form-group">
+                                                      <div class="form-row">
+                                                          <div class="form-group col-md-8">
+                                     <label for="pwd"><br>Password</label>
+
+                                <span class="error">*
+                                <input type="password" name="password" id="pwd" placeholder="Enter password" class="form-control" aria-describedby="passwordHelpBlock"data-minLength="5"
+                       data-error="some error">
+                        <span class="help-block with-errors"></span>
+                                <!-- <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                </small> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                <!-- Password -->
+                      <div class="form-row">
+                            <div class="form-group">
+                              <div class="form-row">
+                                  <div class="form-group col-md-8">
+                                <label for="inputConfirmPassword">Confirm Password</label>
+                                <span class="error">*
+                                <input type="password" id="inputPassword5" placeholder="Confirm Password" class="form-control" aria-describedby="passwordHelpBlock" name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+                       data-match-error="some error 2">
+                       <span class="help-block with-errors"></span>
+                                <!-- <small id="passwordHelpBlock" class="form-text text-muted">
+                                    Your password does not match
+                                </small> -->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--I agree to terms-->
+                      <div></div><br></br><div></div><br></br><div></div><br></br><div></div><br></br>
+                      <div></div><br></br><div></div><br></br><div></div><br></br><div></div><br></br>
+                      <div></div><br></br><div></div><br></br><div></div><br></br><div></div><br></br>
+                      <div></div><br></br><div></div><br></br></br><div></div><br></br><div></div>
+                      <div></div><br></br>
+
+                      <div class="form-group">
+                      <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                      <label class="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions<span class="error">*
+                        </label>
+                      <!-- <div class="invalid-feedback">
+                      You must agree before submitting.
+                      </div> -->
+                      </div>
+                      </div>
+                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <div></div><br></br><div></div>
+
+    </form>
+
+    </body>
+</html>
