@@ -16,21 +16,13 @@
 
         <title>CSC 642 Summer 2018 Registration form</title>
     <head>
+      <script src="js/forms.js"></script>
+      <script type="text/javascript">
 
-        <script src="js/form-validation.js"></script>
-        <script type="text/javascript">
-        function validateForm() {
-    var x = document.forms["myForm"]["firstname"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
+      function checkForm(form)
+        {
 
-        function checkForm(form)
-
-//Password
-  {if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
+          if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
       if(form.pwd1.value.length < 6) {
         alert("Error: Password must contain at least six characters!");
         form.pwd1.focus();
@@ -60,12 +52,13 @@
       return false;
     }
 
-    // alert("You entered a valid password: " + form.pwd1.value);
-    // return true;
+    alert("You entered a valid password: " + form.pwd1.value);
+    return true;
   }
 
 </script>
-        <style>
+
+<style>
 
       /* Styles */
         * {
@@ -107,12 +100,24 @@
           line-height: 30px;
           background: #e67e22;
           color: #fff;
-          /* margin-top: 10px; */
+          margin-top: 10px;
           cursor: pointer;
         }
         form .error {
           color: #ff0000;
         }
+        /* form input:valid {
+  box-shadow: 0 0 5px 1px black;
+}
+        form input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+form input:focus:invalid {
+  outline: none;
+} */
+
+
 
         </style>
     </head>
@@ -122,7 +127,7 @@
                 <br>
                 Registration form</h1>
 
-                <form ... onsubmit="return checkForm(this);" name="registration">
+            <form action="/action_page.php" target="_blank" method="POST">
                     <br>
                     <!-- First Name -->
                     <form class="needs-validation" novalidate>
@@ -131,7 +136,8 @@
                                 <label for="validationTooltip01">First Name<span class="error">*</label>
                                 <!-- <div> -->
                                 <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
-                                <input  type="text"  name="firstname" id="validationTooltip01" class="form-control" placeholder="First Name" maxlength="40" required/>
+                                <input  type="text"  name="firstname" pattern="[A-Za-z\s]+"
+                   maxlength="40" minlength="2"   id="validationTooltip01" class="form-control" placeholder="First Name" required autocomplete="name"/>
                                 <div class="form-item webform-component webform-component-textfield webform-component--first-name webform-container-inline">
                                     <div class="invalid-tooltip">
 
@@ -150,7 +156,8 @@
                                     <div class="form-group col-md-5">
                                         <label class="col-md-4 control-label" >Last Name<span class="error">*</label>
                                         <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
-                                        <input type="text" name="lastname" placeholder="Last Name" class="form-control"  type="text" maxlength="40" required>
+                                        <input type="text" name="lastname" pattern="[A-Za-z\s]+"
+                           maxlength="40" minlength="2" placeholder="Last Name" class="form-control"  type="text" required>
                                         <div class="form-item webform-component webform-component-textfield webform-component--last-name webform-container-inline">
                                             <!-- <div class="invalid-tooltip">
                                               <small id="LastHelpBlock" class="form-text text-muted">
@@ -162,10 +169,10 @@
                                     <!-- Location: Address -->
                                     <div class="form-row">
                                         <div class="form-group col-md-8">
-                                            <br>
+
                                             <label for="validationTooltip03">Address<span class="error">*</label>
                                             <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
-                                            <input type="address" class="form-control" id="validationTooltip03" placeholder="1234 Main St" maxlength="40" required>
+                                            <input type="text" name="Address" size="25" class="form-control" id="validationTooltip03" cols="40" rows="5" placeholder="1234 Main St" maxlength="40" required>
                                             <!-- <div class="invalid-tooltip">
                                             <small id="AddressHelpBlock" class="form-text text-muted">
                                                 Please enter a valid Street Address (each entry up to 40 alpha numeric character)
@@ -249,7 +256,7 @@
                                         <div class="form-group col-md-4">
                                             <label class="col-md-4 control-label" >Zip Code<span class="error">*</label>
                                             <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
-                                            <input type="text" pattern="[0-9]{5}" title="Five digit zip code" placeholder="12345" class="form-control" size="5" maxlength="5"required>
+                                            <input type="text" pattern="[0-9]{5}" maxlength="5" title="Five digit zip code" placeholder="12345" class="form-control" size="5" maxlength="5"required>
                                             <!-- <div class="invalid-tooltip">
                                               <small id="LastHelpBlock" class="form-text text-muted">
                                                   Please enter a valid Last Name (up to 40 characters)
@@ -257,6 +264,7 @@
                                             </div> -->
                                         </div>
                                     </div>
+
                                     <!-- Education option-->
                                     <!-- div class="fixed"> -->
                                     <div class="form-row">
@@ -294,7 +302,7 @@
                                     <form class="form- left-aligned" >
                                         <div class="form-row">
                                             <div class="col-md-5">
-                                                <label class="Phone control-label" ><br>Phone<span class="error">*</label>
+                                                <label class="Phone control-label" ><br>Phone (10 digit)<span class="error">*</label>
                                                 <input type="text" pattern="[0-9]{10}" class="form-control" id="Phone" placeholder="0000000000" maxlength="10" required>
                                                 <div class="form-item webform-component webform-component-phone webform-component--phone webform-container-inline">
                                                 </div>
@@ -306,28 +314,22 @@
                                                 <div class="form-row">
                                                     <div class="form-group col-md-5">
                                                         <label class="inputEmail4 control-label" ><br>Email</label>
-                                                        <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email" maxlength="40">
+                                                        <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Enter a valid email address" maxlength="40">
                                                         <div class="form-item webform-component webform-component-email webform-component--email webform-container-inline">
                                                         </div>
                                                     </div>
                                                     <!-- Password-->
-                                                    <!-- <div class="fixed"> -->
-                                                    <!-- <div class="form-group">
-                                                      <label for="pwd">Password:</label>
-                                                      <input type="password" class="form-control" id="pwd">
-                                                    </div> -->
+                                                    <form ... onsubmit="return checkForm(this);">
 
-                                                    <form class="form- left-aligned" action="/action_page.php">
-                                                        <div class="form-row">
-                                                            <div class="form-group">
+                                                            <!-- <div class="form-group"> -->
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-8">
-                                                                        <label for="pwd"><br>Password<span class="error">*</label>
-
-                                                                        <input type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
-                                                                               id="pwd" placeholder="Enter password" class="form-control" aria-describedby="passwordHelpBlock"data-minLength="5"
-                                                                               data-error="some error"  onchange="form.pwd2.pattern = RegExp.escape(this.value);" required>
-                                                                        <span class="help-block with-errors"></span>
+                                                                        <label for="pwd">Password<span class="error">*</label>
+                                                                          <input type="password" name="pwd1"><input title="Password must contain at least 6 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd1" onchange="
+                                                                          this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                                                                            if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);
+                                                                              " placeholder="Enter password" class="form-control">
+                                                                        <!-- <span class="help-block with-errors"></span> -->
                                                                         <!-- <small id="passwordHelpBlock" class="form-text text-muted">
                                                                             Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
                                                                         </small> -->
@@ -335,14 +337,16 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <!-- Password -->
+                                                        <!-- Confirm Password -->
                                                         <div class="form-row">
                                                             <div class="form-group">
                                                                 <div class="form-row">
                                                                     <div class="form-group col-md-8">
                                                                         <label for="inputConfirmPassword">Confirm Password<span class="error">*</label>
-                                                                        <input type="password" required name="pwd2" title="Password doesnt match" id="inputPassword5" placeholder="Confirm Password" class="form-control" aria-describedby="passwordHelpBlock" name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
-                                                                               data-match-error="some error 2" required>
+                                                                        <!-- <input type="password" required name="pwd2" title="Password doesnt match" id="inputPassword5" placeholder="Confirm Password" class="form-control" aria-describedby="passwordHelpBlock" name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+                                                                               data-match-error="some error 2" required> -->
+                                                                               <input title="Please enter the same Password as above" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
+                                                                                 this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" placeholder="Confirm Password" class="form-control">
                                                                         <span class="help-block with-errors"></span>
                                                                         <!-- <small id="passwordHelpBlock" class="form-text text-muted">
                                                                             Your password does not match
@@ -352,12 +356,8 @@
                                                             </div>
                                                         </div>
                                                         <!--I agree to terms-->
-                                                        <div></div><br></br><div></div><br></br><div></div><br></br><div></div><br></br>
-                                                        <div></div><br></br><div></div><br></br><div></div><br></br><div></div><br></br>
-                                                        <div></div><br></br><div></div><br></br><div></div><br></br><div></div><br></br>
-                                                        <div></div><br></br><div></div><br></br></br><div></div><br></br><div></div><br></br>
 
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
                                                                 <label class="form-check-label" for="invalidCheck">
@@ -366,12 +366,11 @@
                                                                 <!-- <div class="invalid-feedback">
                                                                 You must agree before submitting.
                                                                 </div> -->
-                                                            </div>
-                                                        </div>
-                                                        <button class="btn btn-primary" type="submit">Submit form</button>
-                                                        <div></div><br></br><div></div>
+                                                              <!-- <a href="forms verification page.html"> -->
+                                                              <button onclick="location.href = 'forms verification page.html';" id="myButton" class="float-left submit-button" >Home</button>
 
-                                                    </form>
-
+                                                                <p>By clicking submit, you accept our <a href="termsandcondition.html">Terms and Conditions</a>.</p></div></div>
                                                     </body>
+                                                  </form>
+
                                                     </html>
