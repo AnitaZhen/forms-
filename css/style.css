@@ -56,11 +56,8 @@
 form input:focus:invalid {
   outline: none;
 } */
-</style>
-<style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
+/*map*/
+#map {
         height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -69,12 +66,12 @@ form input:focus:invalid {
         margin: 0;
         padding: 0;
       }
-    </style>
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <style>
+</style>
+
+<style>
       #locationField, #controls {
         position: relative;
-        width: 580px;
+        width: 480px;
       }
 
       .label {
@@ -83,17 +80,12 @@ form input:focus:invalid {
         width: 100px;
         color: #303030;
       }
-      #autocomplete {
-        position: absolute;
-        top: 220px;
-        left: 20px;
-        width: 99%;
-      }
       #address {
         border: 1px solid #000090;
         background-color: #f0f0ff;
-        width: 580px;
+        max-width: 400px;
         padding-right: 2px;
+        margin-bottom:20px;
       }
       #address td {
         font-size: 10pt;
@@ -102,13 +94,13 @@ form input:focus:invalid {
         width: 99%;
       }
       .slimField {
-        width: 100px;
+        width: 80px;
       }
       .wideField {
         width: 200px;
       }
       #locationField {
-        height: 120px;
+        height: 20px;
         margin-bottom: 2px;
       }
-    </style>
+</style>
