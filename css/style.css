@@ -1,0 +1,114 @@
+<style>
+
+      /* Styles */
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          width: 500px;
+          margin: 25px auto;
+        }
+
+        form {
+          padding: 20px;
+        -moz-border-radius: 4px;
+          -webkit-border-radius: 4px;
+          border-radius: 4px;
+        }
+        form label,
+        form input,
+        form button {
+          border: 0;
+          margin-bottom: 3px;
+          display: block;
+          width: 100%;
+        }
+        form input {
+          height: 25px;
+          line-height: 25px;
+
+
+          padding: 0 6px;
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+        }
+        form button {
+          height: 30px;
+          line-height: 30px;
+          background: #e67e22;
+          color: #fff;
+          margin-top: 10px;
+          cursor: pointer;
+        }
+        form .error {
+          color: #ff0000;
+        }
+        /* form input:valid {
+  box-shadow: 0 0 5px 1px black;
+}
+        form input:invalid {
+  box-shadow: 0 0 5px 1px red;
+}
+
+form input:focus:invalid {
+  outline: none;
+} */
+</style>
+<style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <style>
+      #locationField, #controls {
+        position: relative;
+        width: 580px;
+      }
+
+      .label {
+        text-align: right;
+        font-weight: bold;
+        width: 100px;
+        color: #303030;
+      }
+      #autocomplete {
+        position: absolute;
+        top: 220px;
+        left: 20px;
+        width: 99%;
+      }
+      #address {
+        border: 1px solid #000090;
+        background-color: #f0f0ff;
+        width: 580px;
+        padding-right: 2px;
+      }
+      #address td {
+        font-size: 10pt;
+      }
+      .field {
+        width: 99%;
+      }
+      .slimField {
+        width: 100px;
+      }
+      .wideField {
+        width: 200px;
+      }
+      #locationField {
+        height: 120px;
+        margin-bottom: 2px;
+      }
+    </style>

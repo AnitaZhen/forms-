@@ -1,40 +1,201 @@
-// Wait for the DOM to be ready
-$(function() {
-  // Initialize form validation on the registration form.
-  // It has the name attribute "registration"
-  $("form[name='registration']").validate({
-    // Specify validation rules
-    rules: {
-      // The key name on the left side is the name attribute
-      // of an input field. Validation rules are defined
-      // on the right side
-      firstname: "required",
-      lastname: "required",
+
+$(document).ready(function() {
+  $('#form').bootstrapValidator({
+    // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+    feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok-circle',
+      invalid: 'glyphicon glyphicon-remove-circle',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+      first_name: {
+        validators: {
+          stringLength: {
+            min: 2,
+          },
+          notEmpty: {
+            message: 'Please enter your first name (eg. John)'
+          }
+        }
+      },
+      last_name: {
+        validators: {
+          stringLength: {
+            min: 2,
+          },
+          notEmpty: {
+            message: 'Please enter your last name (eg. Cena)'
+          }
+        }
+      },
+      gender: {
+        validators: {
+          stringLength: {
+            min: 0
+          },
+        }
+      },
+      education: {
+        validators: {
+          stringLength: {
+            min: 0,
+          },
+        }
+      },
+      phone: {
+        validators: {
+          notEmpty: {
+            message: 'Please enter your phone number'
+          },
+          phone: {
+            country: 'US',
+            message: 'Please enter a valid US phone number with area code (eg. (555)444-3333)'
+          }
+        }
+      },
       email: {
-        required: true,
-        // Specify that email should be validated
-        // by the built-in "email" rule
-        email: true
+        validators: {
+          notEmpty: {
+            message: 'Please enter your email address'
+          },
+          emailAddress: {
+            message: 'Please enter a valid email address (eg. mail@domain.com)'
+          }
+        }
       },
-      password: {
-        required: true,
-        minlength: 5
-      }
-    },
-    // Specify validation error messages
-    messages: {
-      firstname: "Please enter your firstname",
-      lastname: "Please enter your lastname",
-      password: {
-        required: "Please provide a password",
-        minlength: "Your password must be at least 5 characters long"
+      address: {
+        validators: {
+          stringLength: {
+            min: 8,
+          },
+          notEmpty: {
+            message: 'Please enter the street address (eg. 1600 Holloway Avenue)'
+          }
+        }
       },
-      email: "Please enter a valid email address"
-    },
-    // Make sure the form is submitted to the destination defined
-    // in the "action" attribute of the form when valid
-    submitHandler: function(form) {
-      form.submit();
+      city: {
+        validators: {
+          stringLength: {
+            min: 4,
+          },
+          notEmpty: {
+            message: 'Please enter the city (eg. San Francisco)'
+          }
+        }
+      },
+      state: {
+        validators: {
+          notEmpty: {
+            message: 'Please select the state (eg. CA)'
+          }
+        }
+      },
+      zip: {
+        validators: {
+          notEmpty: {
+            message: 'Please enter the zip code'
+          },
+          zipCode: {
+            country: 'US',
+            message: 'Please enter a valid zip code (eg. 94132)'
+          }
+        }
+      },
+      issue_date: {
+        validators: {
+          notEmpty: {
+            message: 'Please enter today\'s date'
+          },
+          date: {
+            format: 'DD/MM/YYYY',
+            message: 'The value is not a valid date (eg. DD/MM/YYYY)'
+          }
+        }
+      },
+      issue_type: {
+        validators: {
+          notEmpty: {
+            message: 'Please select a category of the issue (eg. Broken pipe)'
+          }
+        }
+      },
+      terms: {
+        validators: {
+          choice: {
+            min: 1,
+            max: 1,
+            message: 'Please check that you have read and agree to the Terms and Conditions'
+          }
+        }
+      },
+      cap_one: {
+        validators: {
+          notEmpty: {
+            message: 'The captcha code is required'
+          },
+          regexp: {
+            regexp: /^[N]+[4]+[E]+[L]+[3]$/,
+            message: 'The captcha is invalid'
+          }
+        }
+      },
+      cap_two: {
+        validators: {
+          notEmpty: {
+            message: 'The captcha code is required'
+          },
+          regexp: {
+            regexp: /^[3]+[P]+[L]+[H]+[J]$/,
+            message: 'The captcha is invalid'
+          }
+        }
+      },
+      cap_three: {
+        validators: {
+          notEmpty: {
+            message: 'The captcha code is required'
+          },
+          regexp: {
+            regexp: /^[F]+[6]+[2]+[P]+[B]$/,
+            message: 'The captcha is invalid'
+          }
+        }
+      },
     }
-  });
+  })
+
+
+  /*.on('success.form.bv', function(e) {
+  $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
+  $('#form').data('bootstrapValidator').resetForm(true);
+  // Prevent form submission
+  e.preventDefault();
+  // Get the form instance
+  var $form = $(e.target);
+  // Get the BootstrapValidator instance
+  var bv = $form.data('bootstrapValidator');
+  // Use Ajax to submit form data
+  $.post($form.attr('action'), $form.serialize(), function(result) {
+  console.log(result);
+}, 'json');
+});*/
+
+$('#clear').click( function () {
+  $('#form').data('bootstrapValidator').resetForm(true);
 });
+
+
+});
+
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      $('#image')
+      .attr('src', e.target.result)
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+};

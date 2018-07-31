@@ -12,115 +12,9 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
         <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="css/style.css"/>
 
-        <title>CSC 642 Summer 2018 Registration form</title>
-    <head>
-      <script src="js/forms.js"></script>
-      <script type="text/javascript">
+        <title>CSC 642 Summer 2018 Registration form-Anita Zhen</title>
 
-      function checkForm(form)
-        {
-
-          if(form.pwd1.value != "" && form.pwd1.value == form.pwd2.value) {
-      if(form.pwd1.value.length < 6) {
-        alert("Error: Password must contain at least six characters!");
-        form.pwd1.focus();
-        return false;
-      }
-      re = /[0-9]/;
-      if(!re.test(form.pwd1.value)) {
-        alert("Error: password must contain at least one number (0-9)!");
-        form.pwd1.focus();
-        return false;
-      }
-      re = /[a-z]/;
-      if(!re.test(form.pwd1.value)) {
-        alert("Error: password must contain at least one lowercase letter (a-z)!");
-        form.pwd1.focus();
-        return false;
-      }
-      re = /[A-Z]/;
-      if(!re.test(form.pwd1.value)) {
-        alert("Error: password must contain at least one uppercase letter (A-Z)!");
-        form.pwd1.focus();
-        return false;
-      }
-    } else {
-      alert("Error: Please check that you've entered and confirmed your password!");
-      form.pwd1.focus();
-      return false;
-    }
-
-    alert("You entered a valid password: " + form.pwd1.value);
-    return true;
-  }
-
-</script>
-
-<style>
-
-      /* Styles */
-        * {
-          margin: 0;
-          padding: 0;
-        }
-
-        .container {
-          width: 500px;
-          margin: 25px auto;
-        }
-
-        form {
-          padding: 20px;
-        -moz-border-radius: 4px;
-          -webkit-border-radius: 4px;
-          border-radius: 4px;
-        }
-        form label,
-        form input,
-        form button {
-          border: 0;
-          margin-bottom: 3px;
-          display: block;
-          width: 100%;
-        }
-        form input {
-          height: 25px;
-          line-height: 25px;
-
-
-          padding: 0 6px;
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-        }
-        form button {
-          height: 30px;
-          line-height: 30px;
-          background: #e67e22;
-          color: #fff;
-          margin-top: 10px;
-          cursor: pointer;
-        }
-        form .error {
-          color: #ff0000;
-        }
-        /* form input:valid {
-  box-shadow: 0 0 5px 1px black;
-}
-        form input:invalid {
-  box-shadow: 0 0 5px 1px red;
-}
-
-form input:focus:invalid {
-  outline: none;
-} */
-
-
-
-        </style>
-    </head>
     <body>
         <!-- title of project -->
         <h1 align="center">CSC 642 Summer 2018 Individual Assignment <student first last name>
@@ -128,145 +22,200 @@ form input:focus:invalid {
                 Registration form</h1>
 
             <form action="/action_page.php" target="_blank" method="POST">
-                    <br>
+
                     <!-- First Name -->
-                    <form class="needs-validation" novalidate>
                         <div class="form-row">
                             <div class="form-group col-md-5">
-                                <label for="validationTooltip01">First Name<span class="error">*</label>
-                                <!-- <div> -->
-                                <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
-                                <input  type="text"  name="firstname" pattern="[A-Za-z\s]+"
-                   maxlength="40" minlength="2"   id="validationTooltip01" class="form-control" placeholder="First Name" required autocomplete="name"/>
-                                <div class="form-item webform-component webform-component-textfield webform-component--first-name webform-container-inline">
-                                    <div class="invalid-tooltip">
-
-                                        <!-- <small id="FirstHelpBlock" class="form-text text-muted">
-                                            Please enter a valid First Name (up to 40 characters)
-                                        </small> -->
-                                    </div>
-                                    <!-- </div>
-                                    <!-- </div> -->
+                                <label class="col-md-4 control-label">First Name<span class="error">*</label>
+                                  <input name="first_name" placeholder="First Name" class="form-control"  type="text">
                                 </div>
                             </div>
 
-                            <form action="" name="registration">
-                                <!-- Last Name -->
-                                <div class="form-row">
-                                    <div class="form-group col-md-5">
-                                        <label class="col-md-4 control-label" >Last Name<span class="error">*</label>
-                                        <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
-                                        <input type="text" name="lastname" pattern="[A-Za-z\s]+"
-                           maxlength="40" minlength="2" placeholder="Last Name" class="form-control"  type="text" required>
-                                        <div class="form-item webform-component webform-component-textfield webform-component--last-name webform-container-inline">
-                                            <!-- <div class="invalid-tooltip">
-                                              <small id="LastHelpBlock" class="form-text text-muted">
-                                                  Please enter a valid Last Name (up to 40 characters)
-                                              </small>
-                                            </div> -->
-                                        </div>
-                                    </div>
+                          <!-- Last Name -->
+                          <div class="form-row">
+                              <div class="form-group col-md-5">
+                                  <label class="col-md-4 control-label">Last Name<span class="error">*</label>
+                                    <input name="last_name" placeholder="Last Name" class="form-control"  type="text">
+                                  </div>
+                              </div>
+
                                     <!-- Location: Address -->
-                                    <div class="form-row">
-                                        <div class="form-group col-md-8">
+                                    <div></div>
+                                    <meta name="viewport" content="width=device-width, initial-scale=1">
+                                    <label class="col-md-4 control-label">Address<span class="error">*</label>
+                                    <div></div>
+                                    <div id="locationField">
+      <input id="autocomplete" placeholder="Enter your address"
+             onFocus="geolocate()" type="text"></input>
+    </div>
 
-                                            <label for="validationTooltip03">Address<span class="error">*</label>
-                                            <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
-                                            <input type="text" name="Address" size="25" class="form-control" id="validationTooltip03" cols="40" rows="5" placeholder="1234 Main St" maxlength="40" required>
-                                            <!-- <div class="invalid-tooltip">
-                                            <small id="AddressHelpBlock" class="form-text text-muted">
-                                                Please enter a valid Street Address (each entry up to 40 alpha numeric character)
-                                            </small>
-                                          </div> -->
-                                        </div>
-                                    </div>
+    <table id="address">
+      <tr>
+        <td class="label">Street address</td>
+        <td class="slimField"><input class="field" id="street_number"
+              disabled="true"></input></td>
+        <td class="wideField" colspan="2"><input class="field" id="route"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">City</td>
+        <!-- Note: Selection of address components in this example is typical.
+             You may need to adjust it for the locations relevant to your app. See
+             https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+        -->
+        <td class="wideField" colspan="3"><input class="field" id="locality"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">State</td>
+        <td class="slimField"><input class="field"
+              id="administrative_area_level_1" disabled="true"></input></td>
+        <td class="label">Zip code</td>
+        <td class="wideField"><input class="field" id="postal_code"
+              disabled="true"></input></td>
+      </tr>
+      <tr>
+        <td class="label">Country</td>
+        <td class="wideField" colspan="3"><input class="field"
+              id="country" disabled="true"></input></td>
+      </tr>
+    </table>
 
-                                    <div class="form-row">
-                                        <div class="form-group col-md-5">
-                                            <label class="validationTooltip04" >City<span class="error">*</label>
-                                            <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
-                                            <input name="text" class="form-control" id="validationTooltip04" placeholder="City" maxlength="40" required>
-                                            <!-- <div class="invalid-tooltip">
-                                              <small id="LastHelpBlock" class="form-text text-muted">
-                                                  Please enter a valid Last Name (up to 40 characters)
-                                              </small>
-                                            </div> -->
+    <script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
 
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="inputState">State<span class="error">*</label>
-                                        <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span> -->
-                                        <select name="State" class="form-control selectpicker"required >
-                                            <option selected>Choose...</option>
-                                            <option>Alabama</option>
-                                            <option>Alaska </option>
-                                            <option>Arizona </option>
-                                            <option>Arkansas </option>
-                                            <option>California </option>
-                                            <option>Colorado </option>
-                                            <option>Connecticut</option>
-                                            <option>Delaware </option>
-                                            <option>Florida </option>
-                                            <option>Georgia </option>
-                                            <option>Hawaii </option>
-                                            <option>Idaho </option>
-                                            <option>Illinois </option>
-                                            <option>Indiana </option>
-                                            <option>Iowa </option>
-                                            <option>Kansas</option>
-                                            <option>Kentucky </option>
-                                            <option>Louisiana </option>
-                                            <option>Maine </option>
-                                            <option>Maryland </option>
-                                            <option>Massachusetts </option>
-                                            <option>Michigan </option>
-                                            <option>Minnesota </option>
-                                            <option>Mississippi </option>
-                                            <option>Missouri </option>
-                                            <option>Montana </option>
-                                            <option>Nebraska </option>
-                                            <option>Nevada </option>
-                                            <option>New Hampshire </option>
-                                            <option>New Jersey </option>
-                                            <option>New Mexico </option>
-                                            <option>New York </option>
-                                            <option>North Carolina </option>
-                                            <option>North Dakota </option>
-                                            <option>Ohio </option>
-                                            <option>Oklahoma</option>
-                                            <option>Oregon </option>
-                                            <option>Pennsylvania </option>
-                                            <option>Rhode Island </option>
-                                            <option>South Carolina </option>
-                                            <option>South Dakota </option>
-                                            <option>Tennessee </option>
-                                            <option>Texas </option>
-                                            <option>Utah </option>
-                                            <option>Vermont </option>
-                                            <option>Virginia </option>
-                                            <option>Washington </option>
-                                            <option>West Virginia </option>
-                                            <option>Wisconsin </option>
-                                            <option>Wyoming </option>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-                                        </select>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-4">
-                                            <label class="col-md-4 control-label" >Zip Code<span class="error">*</label>
-                                            <!-- <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> -->
-                                            <input type="text" pattern="[0-9]{5}" maxlength="5" title="Five digit zip code" placeholder="12345" class="form-control" size="5" maxlength="5"required>
-                                            <!-- <div class="invalid-tooltip">
-                                              <small id="LastHelpBlock" class="form-text text-muted">
-                                                  Please enter a valid Last Name (up to 40 characters)
-                                              </small>
-                                            </div> -->
-                                        </div>
-                                    </div>
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script>
+      // This sample uses the Place Autocomplete widget requesting only a place
+      // ID to allow the user to search for and locate a place. The sample
+      // then reverse geocodes the place ID and displays an info window
+      // containing the place ID and other information about the place that the
+      // user has selected.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -33.8688, lng: 151.2195},
+          zoom: 13
+        });
+
+        var input = document.getElementById('pac-input');
+
+        var autocomplete = new google.maps.places.Autocomplete(
+            input, {placeIdOnly: true});
+        autocomplete.bindTo('bounds', map);
+
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        var infowindow = new google.maps.InfoWindow();
+        var infowindowContent = document.getElementById('infowindow-content');
+        infowindow.setContent(infowindowContent);
+        var geocoder = new google.maps.Geocoder;
+        var marker = new google.maps.Marker({
+          map: map
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+
+        autocomplete.addListener('place_changed', function() {
+          infowindow.close();
+          var place = autocomplete.getPlace();
+
+          if (!place.place_id) {
+            return;
+          }
+          geocoder.geocode({'placeId': place.place_id}, function(results, status) {
+
+            if (status !== 'OK') {
+              window.alert('Geocoder failed due to: ' + status);
+              return;
+            }
+            map.setZoom(11);
+            map.setCenter(results[0].geometry.location);
+            // Set the position of the marker using the place ID and location.
+            marker.setPlace({
+              placeId: place.place_id,
+              location: results[0].geometry.location
+            });
+            marker.setVisible(true);
+            infowindowContent.children['place-name'].textContent = place.name;
+            infowindowContent.children['place-id'].textContent = place.place_id;
+            infowindowContent.children['place-address'].textContent =
+                results[0].formatted_address;
+            infowindow.open(map, marker);
+          });
+        });
+      }</script>
 
                                     <!-- Education option-->
-                                    <!-- div class="fixed"> -->
                                     <div class="form-row">
                                         <div class="form-group">
                                             <div class="col-md-8">
@@ -299,25 +248,21 @@ form input:focus:invalid {
 
                                     </div>
                                     <!-- Phone Number -->
-                                    <form class="form- left-aligned" >
-                                        <div class="form-row">
+                                    <div class="form-row">
                                             <div class="col-md-5">
                                                 <label class="Phone control-label" ><br>Phone (10 digit)<span class="error">*</label>
-                                                <input type="text" pattern="[0-9]{10}" class="form-control" id="Phone" placeholder="0000000000" maxlength="10" required>
-                                                <div class="form-item webform-component webform-component-phone webform-component--phone webform-container-inline">
-                                                </div>
+                                                <input name="phone" placeholder="(555) 555-5555" class="form-control" type="text">
                                             </div>
+                                    </div>
 
                                             <!--Email-->
-                                            <form class="form- left-aligned" >
-
-                                                <div class="form-row">
+                                            <div class="form-row">
                                                     <div class="form-group col-md-5">
-                                                        <label class="inputEmail4 control-label" ><br>Email</label>
-                                                        <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Enter a valid email address" maxlength="40">
-                                                        <div class="form-item webform-component webform-component-email webform-component--email webform-container-inline">
-                                                        </div>
+                                                        <label class="col-md-4 control-label"><br>Email</label>
+                                                        <input name="email" placeholder="mail@domain.com" class="form-control" type="text">
+                                                      </div>
                                                     </div>
+
                                                     <!-- Password-->
                                                     <form ... onsubmit="return checkForm(this);">
 
@@ -329,14 +274,11 @@ form input:focus:invalid {
                                                                           this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
                                                                             if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);
                                                                               " placeholder="Enter password" class="form-control">
-                                                                        <!-- <span class="help-block with-errors"></span> -->
-                                                                        <!-- <small id="passwordHelpBlock" class="form-text text-muted">
-                                                                            Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
-                                                                        </small> -->
-                                                                    </div>
+                                                                      </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <!-- Confirm Password -->
                                                         <div class="form-row">
                                                             <div class="form-group">
@@ -348,29 +290,33 @@ form input:focus:invalid {
                                                                                <input title="Please enter the same Password as above" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="pwd2" onchange="
                                                                                  this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" placeholder="Confirm Password" class="form-control">
                                                                         <span class="help-block with-errors"></span>
-                                                                        <!-- <small id="passwordHelpBlock" class="form-text text-muted">
-                                                                            Your password does not match
-                                                                        </small> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <!--I agree to terms-->
 
-                                                        <!-- <div class="form-group">
-                                                            <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                                                                <label class="form-check-label" for="invalidCheck">
-                                                                    Agree to terms and conditions<span class="error">*
-                                                                </label>
-                                                                <!-- <div class="invalid-feedback">
-                                                                You must agree before submitting.
-                                                                </div> -->
-                                                              <!-- <a href="forms verification page.html"> -->
-                                                              <button onclick="location.href = 'forms verification page.html';" id="myButton" class="float-left submit-button" >Home</button>
+                                                        <div class="col-md-6">
+						                                                    <div class="form-row">
+							                                                           <label class="col-md-4 control-label" style="text-align:left;">Terms and Conditions:</label>
+                                                                         <div class="input-group">
+                                                                           <p><input type="checkbox" name="terms" value="check" id="terms"/> I have read and agree to the
+									                                                                  <a href="termsandcondition.html" target="">Terms and Conditions</a>.</p>
+								                                                                          </div>
+                                                                                        </div>
 
-                                                                <p>By clicking submit, you accept our <a href="termsandcondition.html">Terms and Conditions</a>.</p></div></div>
+                                                                                        <!-- Submit Button -->
+                                                                                        <div class="col-md-6">
+                                                                                          <div class="form-row">
+                                                                                            <label class="col-md-4 control-label"></label>
+                                                                                            <button onclick="location.href = 'forms verification page.html'; " class="btn btn-primary">Submit</button>
+                                                                                          </div>
+                                                                                        </div>
+                                                                                        <div></div><br></br>
+                                                                                        <script type="text/javascript" src="js/form.js"></script>
                                                     </body>
+                                                    <div></div><br></br>
                                                   </form>
 
                                                     </html>
