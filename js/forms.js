@@ -1,201 +1,76 @@
+//map
+<script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
 
-$(document).ready(function() {
-  $('#form').bootstrapValidator({
-    // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
-    feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok-circle',
-      invalid: 'glyphicon glyphicon-remove-circle',
-      validating: 'glyphicon glyphicon-refresh'
-    },
-    fields: {
-      first_name: {
-        validators: {
-          stringLength: {
-            min: 2,
-          },
-          notEmpty: {
-            message: 'Please enter your first name (eg. John)'
-          }
-        }
-      },
-      last_name: {
-        validators: {
-          stringLength: {
-            min: 2,
-          },
-          notEmpty: {
-            message: 'Please enter your last name (eg. Cena)'
-          }
-        }
-      },
-      gender: {
-        validators: {
-          stringLength: {
-            min: 0
-          },
-        }
-      },
-      education: {
-        validators: {
-          stringLength: {
-            min: 0,
-          },
-        }
-      },
-      phone: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter your phone number'
-          },
-          phone: {
-            country: 'US',
-            message: 'Please enter a valid US phone number with area code (eg. (555)444-3333)'
-          }
-        }
-      },
-      email: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter your email address'
-          },
-          emailAddress: {
-            message: 'Please enter a valid email address (eg. mail@domain.com)'
-          }
-        }
-      },
-      address: {
-        validators: {
-          stringLength: {
-            min: 8,
-          },
-          notEmpty: {
-            message: 'Please enter the street address (eg. 1600 Holloway Avenue)'
-          }
-        }
-      },
-      city: {
-        validators: {
-          stringLength: {
-            min: 4,
-          },
-          notEmpty: {
-            message: 'Please enter the city (eg. San Francisco)'
-          }
-        }
-      },
-      state: {
-        validators: {
-          notEmpty: {
-            message: 'Please select the state (eg. CA)'
-          }
-        }
-      },
-      zip: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter the zip code'
-          },
-          zipCode: {
-            country: 'US',
-            message: 'Please enter a valid zip code (eg. 94132)'
-          }
-        }
-      },
-      issue_date: {
-        validators: {
-          notEmpty: {
-            message: 'Please enter today\'s date'
-          },
-          date: {
-            format: 'DD/MM/YYYY',
-            message: 'The value is not a valid date (eg. DD/MM/YYYY)'
-          }
-        }
-      },
-      issue_type: {
-        validators: {
-          notEmpty: {
-            message: 'Please select a category of the issue (eg. Broken pipe)'
-          }
-        }
-      },
-      terms: {
-        validators: {
-          choice: {
-            min: 1,
-            max: 1,
-            message: 'Please check that you have read and agree to the Terms and Conditions'
-          }
-        }
-      },
-      cap_one: {
-        validators: {
-          notEmpty: {
-            message: 'The captcha code is required'
-          },
-          regexp: {
-            regexp: /^[N]+[4]+[E]+[L]+[3]$/,
-            message: 'The captcha is invalid'
-          }
-        }
-      },
-      cap_two: {
-        validators: {
-          notEmpty: {
-            message: 'The captcha code is required'
-          },
-          regexp: {
-            regexp: /^[3]+[P]+[L]+[H]+[J]$/,
-            message: 'The captcha is invalid'
-          }
-        }
-      },
-      cap_three: {
-        validators: {
-          notEmpty: {
-            message: 'The captcha code is required'
-          },
-          regexp: {
-            regexp: /^[F]+[6]+[2]+[P]+[B]$/,
-            message: 'The captcha is invalid'
-          }
-        }
-      },
-    }
-  })
+    <script>
 
+   document.getElementById('postal_code').onkeyup = ()=> {
+    var zipcode = document.getElementById('postal_code').value
+    var error = false;
+          for(var i=0; i < zipcode.length; i++) {
+             if(isNaN(parseInt(zipcode[i])) || zipcode.length !== 5)
+              error = true;
+        }
 
-  /*.on('success.form.bv', function(e) {
-  $('#success_message').slideDown({ opacity: "show" }, "slow") // Do something ...
-  $('#form').data('bootstrapValidator').resetForm(true);
-  // Prevent form submission
-  e.preventDefault();
-  // Get the form instance
-  var $form = $(e.target);
-  // Get the BootstrapValidator instance
-  var bv = $form.data('bootstrapValidator');
-  // Use Ajax to submit form data
-  $.post($form.attr('action'), $form.serialize(), function(result) {
-  console.log(result);
-}, 'json');
-});*/
-
-$('#clear').click( function () {
-  $('#form').data('bootstrapValidator').resetForm(true);
-});
-
-
-});
-
-function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-      $('#image')
-      .attr('src', e.target.result)
-    };
-
-    reader.readAsDataURL(input.files[0]);
-  }
-};
+   if(error) document.getElementById('zipcode').style.color = 'red'
+    if(!error) document.getElementById('zipcode').style.color = 'black'
+}
+    </script>

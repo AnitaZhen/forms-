@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+ <html>
+
+<head>
+
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+    crossorigin="anonymous">
+
+</head>
+<style>
+  h1{
+    background-color: #d5f4e6;
+}
+  h5{
+    background-color: #d5f4e6;
+}
+</style>
+
+<body>
+  <style>
+
+
+</style>
+
+<h1 class align="center">CSC 642 Summer 2018 Individual Assignment
+          <br>
+          Result Verification Page </h1>
+          <br>
+
+  <h1 class style="text-align:center">Hello, <%=firstname%></h1>
+
+
+  <hr class="my-4" style="text-align:center">
+ <p><b>First Name:</b>  <%=firstname%></p>
+ <p><b>Last Name: </b>  <%=lastname%></p>
+ <p><b>Address:</b>     <%=address%> </p>
+ <p><b>Education Level:</b> <%=education%></p>
+ <p><b>Income Yearly:</b>   <%=income%></p>
+ <p><b>Phone:</b>       <%=phone%></p>
+ <p><b>Email:</b>       <%=email%></p>
+
+</div>
+
+<h5 align="center"  style="text-align:center;">Here is the map location of your address: <%=address%></h5>
+  <hr class="my-4">
+
+<div class="container" id="map" style="width:400px;height:400px;"></div>
+
+
+<script>
+function myMap() {
+  var myCenter = new google.maps.LatLng(<%=lat%>, <%=lng%>);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 18};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<!-- <script>
+function myMap() {
+var mapOptions = {
+    center: new google.maps.LatLng(<%=lat%>, <%=lng%>),
+    zoom: 18,
+    mapTypeId: google.maps.MapTypeId.STANDARD
+}
+var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+var marker = new google.maps.Marker({position:center});
+  marker.setMap(map);
+}
+</script> -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-fyTdVQda6q8SRMto5mpzatzXHHvuFh4&callback=myMap"></script>
+
+<h5 align="center"  style="text-align:center;">Thank You for filling out this application. Have a Great Day!</h5>
+
+  <br></br>
+</body>
+
+
+
+</html>

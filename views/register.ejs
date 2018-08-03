@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        <title>CSC 642 form-Anita Zhen</title>
+    </head>
+
+    <style>
+
+     #map {
+            height: 100%;
+          }
+          /* Optional: Makes the sample page fill the window. */
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+
+          form .error {
+              color: #ff0000;
+            }
+             form input:valid {
+      box-shadow: 0 0 5px 1px green;
+    }
+            form input:invalid {
+      box-shadow: 0 0 5px 1px red;
+    }
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
+    <style>
+      #locationField, #controls {
+        position: relative;
+        width: 480px;
+      }
+
+      .label {
+        text-align: right;
+        font-weight: bold;
+        width: 100px;
+        color: #303030;
+      }
+      #address {
+        border: 1px solid #000090;
+        background-color: #f0f0ff;
+        max-width: 400px;
+        padding-right: 2px;
+        margin-bottom:20px;
+      }
+      #address td {
+        font-size: 10pt;
+      }
+      .field {
+        width: 99%;
+      }
+      .slimField {
+        width: 80px;
+      }
+      .wideField {
+        width: 200px;
+      }
+      #locationField {
+        height: 20px;
+        margin-bottom: 2px;
+      }
+      h1{
+    background-color: #d5f4e6;
+        }
+    </style>
+
+    <body>
+
+        <!-- title of project -->
+        <h1 align="center">CSC 642 Summer 2018 Individual Assignment - Anita Zhen
+            <br>
+            Registration form</h1>
+
+
+
+        <div style="color:red; padding-top:20px;" id='first_errors'>
+
+        </div>
+
+        <div style="color:red; padding-top:20px;" id='last_errors'>
+
+        </div>
+
+        <div style="color:red; padding-top:20px;" id='pass_errors'>
+
+        </div>
+
+        <div style="color:red; padding-top:20px;" id='email_errors'>
+
+        </div>
+
+        <form name='registration' onsubmit="return checkform(this)" method="post" action='/register'>
+
+            <!--First name-->
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="col-md-4 control-label">First Name<span class="error">*</span></label>
+                    <input  type="text"  name="firstname" pattern="[A-Za-z0-9-_ .\s]+" maxlength="40"
+                            minlength="2" class="form-control" id="firstname" placeholder = "First name" required>
+                </div>
+            </div>
+
+            <!--Last name-->
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="col-md-4 control-label">Last Name<span class="error">*</span></label>
+                    <input  type="text"  name="lastname" pattern="[A-Za-z0-9-_ .\s]+" maxlength="40"
+                            minlength="2" class="form-control" id="lastname" placeholder="Last name"required>
+                </div>
+            </div>
+
+            <!--Address-->
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="col-md-4 control-label">Address<span class="error">*</span></label>
+                    <input id="autocomplete" onFocus="geolocate()" type="text" name="address" class="form-control"  required>
+                </div>
+            </div>
+            <br></br><div></div><br></br>
+            <table id="address">
+                <tr>
+                    <td class="label">Street address</td>
+                    <td class="slimField"><input class="field" id="street_number"
+                                                 disabled="true" name="street" required></input></td>
+                    <td class="wideField" colspan="2"><input class="field" id="route"
+                                                             disabled="true" name="street_name" required></input></td>
+                </tr>
+                <tr>
+                    <td class="label">City<span class="error">*</span></td>
+                    <!-- Note: Selection of address components in this example is typical.
+                         You may need to adjust it for the locations relevant to your app. See
+                         https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
+                    -->
+                    <td class="wideField" colspan="3"><input class="field" id="locality"
+                                                             disabled="true" name="city" required></input></td>
+                </tr>
+                <tr>
+                    <td class="label"> State <span class="error">*</span></td>
+                    <td class="slimField"><input class="field"
+                                                 id="administrative_area_level_1" disabled="true" name="state" required></input></td>
+                    <td class="label" id="zipcode">Zip code<span class="error">*</span></td>
+                    <td class="wideField"><input class="field" id="postal_code"
+                                                 disabled="true" name="zipcode" required></input></td>
+                </tr>
+                <tr>
+                    <td class="label">Country</td>
+                    <td class="wideField" colspan="3"><input class="field"
+                                                             id="country" disabled="true" required></input></td>
+                </tr>
+            </table>
+
+            <!-- Education option-->
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label for="Education Level" name="education">Education Level<span class="error">*</span></label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="education" required>
+                            <option value="">Select one...</option>
+                            <option value="High School">High School</option>
+                            <option value="College">College</option>
+                            <option value="Graduate Studies">Graduate Studies</option>
+                            <option value="PH.D">PH.D</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--Income yearly-->
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="col-md-8">
+                        <label for="Income (yearly)" name="income"> <br>Income (yearly)<span class="error">*</span></label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="income" required>
+                            <option value="">Select one...</option>
+                            <option value="Less than $50K">Less than $50K</option>
+                            <option value="Between $50-100K">Between $50-100K</option>
+                            <option value="Above $100K">Above $100K</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!--Phone-->
+            <div class="form-row">
+                <div class="col-md-5">
+                    <label class="Phone control-label" ><br>Phone (10 digit)<span class="error">*</span></label>
+                    <input type="text" class="form-control" name = "phone" pattern="[0-9]{10}" id="phone_number" maxlength="10" placeholder="1234567890" required>
+                </div>
+            </div>
+
+            <!--Email-->
+              <div class="form-row">
+                   <div class="form-group col-md-5">
+                      <label class="inputEmail4 control-label" ><br>Email<span class="error">*</label>
+                         <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Enter a valid email address" maxlength="40" required>
+                            </div>
+               </div>
+
+                <!--Password-->
+                <form ... onsubmit="return checkForm(this);">
+
+                    <!-- <div class="form-group"> -->
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <label for="pwd">Password<span class="error">*</label>
+                            <input title="Password must contain at least 8 characters, including UPPER/lowercase and numbers" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pwd1" onchange="
+                                                                          this.setCustomValidity(this.validity.patternMismatch ? this.title : '');
+                                                                            if(this.checkValidity()) form.pwd2.pattern = RegExp.escape(this.value);
+                                   " placeholder="Enter password" class="form-control">
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-row">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-8">
+                        <label for="inputConfirmPassword">Confirm Password<span class="error">*</label>
+                        <!-- <input type="password" required name="pwd2" title="Password doesnt match" id="inputPassword5" placeholder="Confirm Password" class="form-control" aria-describedby="passwordHelpBlock" name="confirmPassword" data-match="#confirmPassword" data-minLength="5"
+                               data-match-error="some error 2" required> -->
+                        <input title="Please enter the same Password as above" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" name="pwd2" onchange="
+                                                                                 this.setCustomValidity(this.validity.patternMismatch ? this.title : '');" placeholder="Confirm Password" class="form-control">
+                        <span class="help-block with-errors"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--I agree to terms-->
+
+        <div class="col-md-6">
+            <div class="form-row">
+                <label class="col-md-4 control-label" style="text-align:left;">Terms and Conditions: <span class="error">*</label>
+                <div class="input-group">
+                    <p><input type="checkbox" name="terms" value="check" id="terms"/required> I have read and agree to the Terms and Conditions</p>
+                </div>
+                <details>
+                    <summary>Terms and Conditions.</summary>
+
+                    <p>You agree to follow all rules and have your data stored into our database. We will not share your data. Thank You</p>
+                </details>
+            </div>
+            <div></div><br>
+            <!--Captcha-->
+            <div class="form-row">
+                <label class="col-md-4 control-label" style="text-align:left;">Captcha <span class="error">*</label>
+                <div class="g-recaptcha" data-sitekey="6LcuU2cUAAAAAKj1fcU2pE7z_SIJ7jyp7pTlk0jc" required></div>
+
+                <div></div><br><br>
+                <!-- Submit Button -->
+                <div class="col-md-6">
+                    <div class="form-row">
+                        <label class="col-md-4 control-label"></label>
+                        <button type='submit' id="myButton" class="float-left submit-button" >Submit</button>
+                    </div>
+                </div>
+                </form>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+
+    <!-- <script src="./validation.js">
+    </script> -->
+
+    <script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+      function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+      }
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD-fyTdVQda6q8SRMto5mpzatzXHHvuFh4&libraries=places&callback=initAutocomplete"
+    async defer></script>
+
+    <script>
+
+   document.getElementById('postal_code').onkeyup = ()=> {
+    var zipcode = document.getElementById('postal_code').value
+    var error = false;
+          for(var i=0; i < zipcode.length; i++) {
+             if(isNaN(parseInt(zipcode[i])) || zipcode.length !== 5)
+              error = true;
+        }
+
+   if(error) document.getElementById('zipcode').style.color = 'red'
+    if(!error) document.getElementById('zipcode').style.color = 'black'
+}
+    </script>
+
+</body>
+
+
+</html>
