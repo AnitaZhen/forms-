@@ -15,15 +15,25 @@ For testing I used Selenium and tested the following form fields: first name and
 For WWW server I used Heroku. I first made an account for Heroku and followed its provided steps in installing the web server. I then tested my application to see if it was working in the localhost:3000 and everytime I was ready to push it, I will first test to see if the site is looking the way I want it to be then I "git add .",  "git commit –m”message”" and "git push Heroku master". This is how the site is running successfully.
 
 “Here I list resources I used in order to design, develop and test this assignment
+
+
 Bootstrap
 https://getbootstrap.com/ (last accessed July 22, 2018)
 https://getbootstrap.com/docs/4.0/components/forms (last accessed July 22, 2018)
+
+
 Selenium
 https://www.seleniumhq.org/
 https://www.softwaretestinghelp.com/selenium-tutorial-1/  (last accessed July 31, 2018)
+
+
 Google Captcha
 https://www.google.com/recaptcha/intro/v3beta.html (last accessed July 30, 2018)
+
+
 Google Map
 https://developers.google.com/maps/documentation/javascript/places-autocomplete (last accessed July 30, 2018)
+
+
 Heroku
 https://www.heroku.com (last accessed July 31, 2018)
