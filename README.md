@@ -12,6 +12,11 @@ For captcha I used google captcha. I went to google.com and entered my site url.
 
 For testing I used Selenium and tested the following form fields: first name and last name. I first click record, which started to record the website I was testing. I tested in the localhost:3000 and I started to fill out the form. On the bottom of the screen, the log will record what I entered and check whether it passed or fail. In the log, it showed that it passed by having "OK". The following shows screenshots of the test
 
+
+
+
+
+
 For WWW server I used Heroku. I first made an account for Heroku and followed its provided steps in installing the web server. I then tested my application to see if it was working in the localhost:3000 and everytime I was ready to push it, I will first test to see if the site is looking the way I want it to be then I "git add .",  "git commit –m”message”" and "git push Heroku master". This is how the site is running successfully.
 
 “Here I list resources I used in order to design, develop and test this assignment
